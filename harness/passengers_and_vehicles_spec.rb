@@ -1,6 +1,10 @@
 require 'rspec'
 require './lib/passenger'
 
+RSpec.configure do |config|
+  config.formatter = :documentation
+end
+
 RSpec.describe 'Passenger and Vehicles Spec Harness' do
   before(:each) do
     @vehicle = Vehicle.new("2001", "Honda", "Civic")
