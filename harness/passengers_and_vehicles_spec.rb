@@ -85,4 +85,87 @@ RSpec.describe 'Passenger and Vehicles Spec Harness' do
       expect(@vehicle.num_adults).to eq(2)
     end
   end
+
+  describe 'Iteration 3' do
+    it "11. Park Instantiation" do 
+      expect(Park).to respond_to(:new).with(2).argument
+      park = Park.new("RMNP", 25)
+      expect(park.name).to eq("RMNP")
+      expect(park.price).to eq(25)
+    end
+
+    it "12. Park #all_vehicles" do 
+      park = Park.new("RMNP", 25)
+      park.add_vehicle(@vehicle)
+      expect(park.all_vehicles).to eq([@vehicle])
+    end
+
+    it "13. Park #all_passengers" do 
+      park = Park.new("RMNP", 25)
+      park.add_vehicle(@vehicle)
+      jude = Passenger.new({"name" => "Jude", "age" => 20})
+      @vehicle.add_passenger(@charlie)
+      @vehicle.add_passenger(@taylor)
+      @vehicle.add_passenger(jude)
+      park.add_vehicle(@vehicle)
+
+      expect(park.all_passengers).to eq([@charlie, @taylor, jude])
+    end
+
+    it "14. Park #revenue" do 
+      park = Park.new("RMNP", 25)
+      park.add_vehicle(@vehicle)
+      jude = Passenger.new({"name" => "Jude", "age" => 20})
+      @vehicle.add_passenger(@charlie)
+      @vehicle.add_passenger(@taylor)
+      @vehicle.add_passenger(jude)
+      park.add_vehicle(@vehicle)
+
+      expect(park.revenue).to eq(50)
+    end
+  end
+
+  describe "Iteration 4" do 
+    it "15. Park #all_passenger_names" do 
+      park = Park.new("RMNP", 25)
+      park.add_vehicle(@vehicle)
+      jude = Passenger.new({"name" => "Jude", "age" => 20})
+      @vehicle.add_passenger(@charlie)
+      @vehicle.add_passenger(@taylor)
+      @vehicle.add_passenger(jude)
+      park.add_vehicle(@vehicle)
+
+      expect(park.all_passengers).to eq(["Charlie", "Jude", "Taylor"])
+    end
+
+    it "16. Park #minors" do 
+      park = Park.new("RMNP", 25)
+      park.add_vehicle(@vehicle)
+      jude = Passenger.new({"name" => "Jude", "age" => 20})
+      @vehicle.add_passenger(@charlie)
+      @vehicle.add_passenger(@taylor)
+      @vehicle.add_passenger(jude)
+      bob = Passenger.new({"name" => "Bob", "age" => 5})
+      @vehicle.add_passenger(bob)
+      park.add_vehicle(@vehicle)
+
+
+      expect(park.minors).to eq("Bob", "Taylor")
+    end
+
+    it "17. Park #adults" do 
+      park = Park.new("RMNP", 25)
+      park.add_vehicle(@vehicle)
+      jude = Passenger.new({"name" => "Jude", "age" => 20})
+      @vehicle.add_passenger(@charlie)
+      @vehicle.add_passenger(@taylor)
+      @vehicle.add_passenger(jude)
+      bob = Passenger.new({"name" => "Bob", "age" => 35})
+      @vehicle.add_passenger(bob)
+      park.add_vehicle(@vehicle)
+
+
+      expect(park.minors).to eq("Bob", "Charlie", "Jude")
+    end
+  end
 end
