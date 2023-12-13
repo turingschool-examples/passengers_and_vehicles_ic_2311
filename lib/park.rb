@@ -43,10 +43,10 @@ class Park
       minors = @passengers_entered_park.select do |passenger| 
          !passenger.adult?
       end
-      minors_sorted = minors.map{ |minors| minors.name}.sort
+      minors_sorted = minors.map{ |minors| minors.name}.sort.uniq
    end
 
    def adults_entered_park
-      @passengers_entered_park.select(&:adult?).map(&:name).sort
+      @passengers_entered_park.select(&:adult?).map(&:name).sort.uniq
    end
 end
