@@ -1,23 +1,35 @@
+require "pry"
+require "rspec"
+require "./lib/passenger"
+require "./lib/vehicle"
+
+RSpec.describe Vehicle do
+  before(:each) do
+    @vehicle = Vehicle.new("2001", "Honda", "Civic")
+  end
+
+  describe "#passenger" do 
+    it "has attributes" do 
+      expect(@vehicle).to be_an_instance_of(Vehicle)
+      expect().to eq()
+      expect().to eq()
+      expect().to eq()
+      expect().to eq()
+      expect().to eq()
+      expect().to eq()
+      expect().to eq()
+      expect().to eq()
+      expect().to eq()
+      expect().to eq()
 
 
 
+end
 
-# expect().to eq()
-#       expect().to eq()
-#       expect().to eq()
-#       expect().to eq()
-#       expect().to eq()
+
 
 
 ```ruby
-pry(main)> require './lib/vehicle'
-# => true
-
-pry(main)> require './lib/passenger'
-# => true
-
-pry(main)> vehicle = Vehicle.new("2001", "Honda", "Civic")    
-# => #<Vehicle:0x00007fe0da9c63d8...>
 
 pry(main)> vehicle.year
 # => "2001"
