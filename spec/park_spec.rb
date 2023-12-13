@@ -35,4 +35,20 @@ RSpec.describe do
          expect(@park.vehicles_entered_park).to eq ([honda, nissan])
       end
    end
+
+   describe '#passengers_entered_park' do
+      it 'can list passengers in vehicles that entered the park' do
+         honda = Vehicle.new("2001", "Honda", "Civic") 
+         charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+         jude = Passenger.new({"name" => "Jude", "age" => 20})
+         taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+
+         honda.add_passenger(charlie)
+         honda.add_passenger(jude)
+         honda.add_passenger(taylor)
+         @park.add_vehicle(honda)
+
+         expect(@park.passengers_entered_park).to eq ([charlie, jude, taylor])
+      end
+   end
 end
