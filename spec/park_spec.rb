@@ -37,6 +37,10 @@ RSpec.describe do
    end
 
    describe '#passengers_entered_park' do
+      it 'start as an empty array' do
+         expect(@park.passengers_entered_park).to eq []
+      end
+
       it 'can list passengers in vehicles that entered the park' do
          honda = Vehicle.new("2001", "Honda", "Civic") 
          charlie = Passenger.new({"name" => "Charlie", "age" => 18})
