@@ -36,4 +36,12 @@ RSpec.describe Vehicle do
             expect(@vehicle.passengers).to eq([@charlie, @jude, @taylor])
         end
     end
+
+    describe '#num_adults' do
+        it 'counts the number of adults in a vehicle' do
+            puts @vehicle.passengers
+            expect(@vehicle.num_adults).to eq(2)
+        end
+    end
+        
 end

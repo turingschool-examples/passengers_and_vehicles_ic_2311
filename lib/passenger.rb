@@ -9,7 +9,7 @@ class Passenger
     end
 
     def adult?
-        @age >= 18
+        @age.to_i >= 18
     end
 
     def driver?
