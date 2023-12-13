@@ -63,4 +63,8 @@ class Park
         end
         attendees_list(minor_attendees)
     end
+
+    def track_patrons
+        p "The #{@name} National Park has the honor to announce the patrons for the year: #{adult_attendees.join(", ")}, who generously gave us #{revenue} USD"
+    end
 end
