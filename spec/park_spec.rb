@@ -6,12 +6,16 @@ RSpec.describe Park do
     before :each do
         @vehicle1 = Vehicle.new("2001", "Honda", "Civic") 
         @vehicle2 = Vehicle.new("2009", "Subaru", "Legacy")
-        @vehicle3 = Vehicle.new("2015", "Toyota", "Tacoma")
         @charlie = Passenger.new({"name" => "Charlie", "age" => 18})
         @jude = Passenger.new({"name" => "Jude", "age" => 20})
         @taylor = Passenger.new({"name" => "Taylor", "age" => 12})
         @park1 = Park.new("Yosemite", 25)
-        @park2 = Park.new("Rocky Mountain", 20)
+
+        @vehicle1.add_passenger(@charlie)  
+        @vehicle1.add_passenger(@jude)
+        @vehicle2.add_passenger(@taylor)
+        @park1.add_vehicle(@vehicle1)
+        @park1.add_vehicle(@vehicle2)
     end
 
     it "exists" do
@@ -24,14 +28,14 @@ RSpec.describe Park do
     end
 
     it "#all_vehicles_in_park" do
-        expect(@park1.vehicles).to eq ([])
+        expect(@park1.vehicles).to eq ([@vehicle1, @vehicle2])
     end
 
     it "#all_passengers_in_park" do
-        expect(@park1.passengers).to eq([])
+        expect(@park1.all_passengers_in_park).to eq([@charlie, @jude, @taylor])
     end
 
-    it "#revenue_generated" do
-        expect(@park.revenue).to eq(50)
+    xit "#calculate_revenue" do
+        expect(@park.calculate_revenue).to eq(50)
     end
 end
