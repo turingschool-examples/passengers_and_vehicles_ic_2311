@@ -168,6 +168,42 @@ RSpec.describe Park do
             rocky_mtn.add_vehicle(vehicle_2)
             rocky_mtn.add_vehicle(vehicle_3)
             expect(rocky_mtn.adult_attendees).to eq(["Charlie", "Jude", "Liz", "Max"])
+            expect(rocky_mtn.revenue).to eq(800)
         end
     end
+    describe "#Track Patrons" do
+        it "returns a correct messaje announcing the patrons per park" do
+            rocky_mtn = Park.new("Rocky Mountain" , 200)
+            yosemite = Park.new("Yosemite" , 400)
+            vehicle_1 = Vehicle.new("2001", "Honda", "Civic")
+            vehicle_2 = Vehicle.new("2019", "Hyundai", "SantaFe")
+            vehicle_3 = Vehicle.new("2005", "Suzuki", "SX4")
+            charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+            jude = Passenger.new({"name" => "Jude", "age" => 20}) 
+            taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+            max = Passenger.new({"name" => "Max", "age" => 25})
+            violet = Passenger.new({"name" => "Violet", "age" => 5})
+            liz = Passenger.new({"name" => "Liz", "age" => 40})
+            vehicle_1.add_passenger(charlie)
+            vehicle_1.add_passenger(jude)
+            vehicle_1.add_passenger(taylor)
+            charlie.drive
+            vehicle_1.speed
+            vehicle_2.add_passenger(liz)
+            vehicle_2.add_passenger(violet)
+            liz.drive
+            vehicle_2.speed
+            vehicle_3.add_passenger(max)
+            max.drive
+            vehicle_3.speed
+            yosemite.add_vehicle(vehicle_1)
+            rocky_mtn.add_vehicle(vehicle_2)
+            rocky_mtn.add_vehicle(vehicle_3)
+            expected1 = "The Rocky Mountain National Park has the honor to announce the patrons for the year: Liz, Max, who generously gave us 400 USD"
+            expected2 ="The Yosemite National Park has the honor to announce the patrons for the year: Charlie, Jude, who generously gave us 800 USD"
+            expect(rocky_mtn.track_patrons).to eq(expected1)
+            expect(yosemite.track_patrons).to eq(expected2)
+        end
+    end
+
 end
