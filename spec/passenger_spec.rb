@@ -22,7 +22,7 @@ RSpec.describe do
 
    describe '#adult?' do
       it 'check if passenger is adult' do
-         expect(charlie.adult?).to eq true
+         expect(@charlie.adult?).to eq true
       end
    end
 end
