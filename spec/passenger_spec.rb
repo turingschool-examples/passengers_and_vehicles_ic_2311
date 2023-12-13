@@ -12,6 +12,9 @@ RSpec.describe do
          expect(passenger.name).to eq "Charlie"
       end
 
-      
+      it 'has a age' do
+         passenger = Passenger.new({"name" => "Charlie", "age" => 18})
+         expect(passenger.age).to eq 18
+      end
    end
 end
