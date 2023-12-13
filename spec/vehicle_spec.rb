@@ -23,4 +23,10 @@ RSpec.describe Vehicle do
          expect(@vehicle.model).to eq "Civic"
       end
    end
+
+   describe '#speeding?' do
+      it 'check if vehicle is speeding' do
+         expect(@vehicle.speeding?).to eq false
+      end
+   end
 end
