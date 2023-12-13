@@ -6,6 +6,7 @@ class Vehicle
         @make = make
         @model = model
         @speeding = false
+        @passengers = []
     end
 
     def speeding?
@@ -14,5 +15,13 @@ class Vehicle
 
     def speed
         @speeding = true
+    end
+
+    def passengers
+        @passengers
+    end
+
+    def add_passenger(passenger)
+        @passengers << passenger
     end
 end
