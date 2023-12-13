@@ -1,5 +1,7 @@
 require 'rspec'
 require './lib/passenger'
+require './lib/vehicle'
+require './lib/park'
 
 RSpec.configure do |config|
   config.formatter = :documentation
