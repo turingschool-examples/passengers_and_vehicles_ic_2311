@@ -40,6 +40,10 @@ RSpec.describe Vehicle do
    end
 
    describe '#add_passenger' do
+      it 'start as an empty array' do
+         expect(@vehicle.passengers).to eq ([])
+      end
+   
       it 'can add passengers to the car' do
          charlie = Passenger.new({"name" => "Charlie", "age" => 18})
          jude = Passenger.new({"name" => "Jude", "age" => 20})
