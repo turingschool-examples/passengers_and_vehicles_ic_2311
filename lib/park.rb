@@ -12,5 +12,7 @@ class Park
     @vehicles = []
   end
 
-
+  def add_vehicle(vehicle)
+    @vehicles << vehicle
+  end
 end
