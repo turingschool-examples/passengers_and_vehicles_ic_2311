@@ -16,12 +16,19 @@ class Park
    def add_vehicle(vehicle)
       @vehicles_entered_park.push(vehicle)
       add_passenger_to_park(vehicle)
+      add_revenue(vehicle)
       @vehicles_entered_park
    end
 
    def add_passenger_to_park(vehicle)
       vehicle.passengers.each do |passenger| 
          @passengers_entered_park.push(passenger)
+      end
+   end
+
+   def add_revenue(vehicle)
+      vehicle.passengers.each do |passenger| 
+         passenger.adult? ? @revenue += @admission_price : @revenue
       end
    end
 
