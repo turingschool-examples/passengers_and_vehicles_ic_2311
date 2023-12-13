@@ -45,6 +45,7 @@ RSpec.describe Park do
 
     it "#sort_names_by_age" do
         expect(@park1.sort_names_by_age).to be_a Hash
+        expect(@park1.sort_names_by_age[:adult_patrons]).to eq(["Charlie", "Jude"])
     end
 
 end

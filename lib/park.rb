@@ -36,15 +36,24 @@ class Park
     end
 
     def sort_names_by_age
-        adults = all_passengers_in_park.map do |passenger|
+        adults = all_passengers_in_park.select do |passenger|
             passenger.age >= 18
         end
-        minors = all_passengers_in_park.map do |passenger|
+        minors = all_passengers_in_park.select do |passenger|
             passenger.age < 18
         end
 
-        names_sorted_by_age = { adult_patrons: adults, minor_patrons: minors}
-        names_sorted_by_age
+        adult_names = adults.map do |adult|
+            adult.name
+        end
+        minor_names = minors.map do |minor|
+            minor.name
+        end
+
+        adult_names.sort
+        minor_names.sort
+
+        names_sorted_by_age = { adult_patrons: adult_names, minor_patrons: minor_names}
     end
 end
 
