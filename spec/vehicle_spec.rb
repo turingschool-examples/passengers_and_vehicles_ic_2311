@@ -12,5 +12,18 @@ RSpec.describe Vehicle do
     end
   end
 
+  describe "#speeding?" do
+    it "return false by default" do
+      expect(vehicle.speeding).to eq (false)
+    end
+  end
+
+  describe "#speed" do
+    it "change speeding to true" do
+      vehicle.speed
+
+      expect(vehicle.speeding).to eq (true)
+    end
+  end
 
 end
