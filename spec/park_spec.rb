@@ -67,4 +67,37 @@ RSpec.describe do
          expect(@park.passengers_entered_park).to eq ([charlie, jude, taylor, joe, jack, jess])
       end
    end
+
+   describe '#revenue' do
+      it 'start as 0' do
+         expect(@park.revenue).to eq 0
+      end
+
+      it 'add admission price to revenue per adult that entered the park' do
+         honda = Vehicle.new("2001", "Honda", "Civic") 
+         charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+         jude = Passenger.new({"name" => "Jude", "age" => 20})
+         taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+
+         honda.add_passenger(charlie)
+         honda.add_passenger(jude)
+         honda.add_passenger(taylor)
+         @park.add_vehicle(honda)
+         
+         expect(@park.revenue).to eq 50
+
+         nissan = Vehicle.new("2010", "Nissan", "Altima")
+         joe = Passenger.new({"name" => "Joe", "age" => 30})
+         jack = Passenger.new({"name" => "Jack", "age" => 25})
+         jess = Passenger.new({"name" => "Jess", "age" => 15})
+
+         nissan.add_passenger(joe)
+         nissan.add_passenger(jack)
+         nissan.add_passenger(jess)
+
+         @park.add_vehicle(nissan)
+
+         expect(@park.revenue).to eq 100
+      end
+   end
 end
