@@ -24,4 +24,8 @@ class Vehicle
    def add_passenger(passenger)
       @passengers.push(passenger)
    end
+
+   def num_adults
+      @passengers.count { |passenger| passenger.age >= 18 }
+   end
 end
