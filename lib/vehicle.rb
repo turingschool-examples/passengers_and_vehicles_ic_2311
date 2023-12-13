@@ -29,7 +29,5 @@ class Vehicle
       passenger if passenger.age >= 18
     end
   end
-
-
   
 end
