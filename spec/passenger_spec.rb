@@ -11,6 +11,7 @@ RSpec.describe Passenger do
             expect(@charlie).to be_an_instance_of(Passenger)
             expect(@charlie.age).to eq(18)
             expect(@charlie.name).to eq("Charlie")
+            
             expect(@taylor).to be_an_instance_of(Passenger)
             expect(@taylor.age).to eq(12)
             expect(@taylor.name).to eq("Taylor")
@@ -21,6 +22,14 @@ RSpec.describe Passenger do
         it 'shows if the age of the passenger is 18 or older' do
             expect(@charlie.adult?).to eq(true)
             expect(@taylor.adult?).to eq(false)
+        end
+    end
+
+    describe '#driver?' do
+        it 'can return who is driving' do
+            expect(@charlie.driver?).to be(false)
+            @charlie.drive
+            expect(@charlie.driver?).to be(true)
         end
     end
 end
