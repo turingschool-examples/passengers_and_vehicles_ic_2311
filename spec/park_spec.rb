@@ -50,9 +50,21 @@ RSpec.describe do
          honda.add_passenger(charlie)
          honda.add_passenger(jude)
          honda.add_passenger(taylor)
-         @park.add_vehicle(honda)
+         
 
-         expect(@park.passengers_entered_park).to eq ([charlie, jude, taylor])
+         nissan = Vehicle.new("2010", "Nissan", "Altima")
+         joe = Passenger.new({"name" => "Joe", "age" => 30})
+         jack = Passenger.new({"name" => "Jack", "age" => 25})
+         jess = Passenger.new({"name" => "Jess", "age" => 15})
+
+         nissan.add_passenger(joe)
+         nissan.add_passenger(jack)
+         nissan.add_passenger(jess)
+
+         @park.add_vehicle(honda)
+         @park.add_vehicle(nissan)
+
+         expect(@park.passengers_entered_park).to eq ([charlie, jude, taylor, joe, jack, jess])
       end
    end
 end
