@@ -21,7 +21,6 @@ RSpec.describe Vehicle do
             expect(@vehicle.speeding?).to eq (false)
             @vehicle.speed
             expect(@vehicle.speeding?).to eq (true)
-            
         end
     end
 end
