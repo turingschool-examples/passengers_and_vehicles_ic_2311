@@ -10,6 +10,7 @@ class Vehicle
     @model = model
     @is_speeding = false
     @passengers = []
+    @adults = 0
   end
 
   def speeding?
@@ -29,5 +30,4 @@ class Vehicle
       passenger if passenger.age >= 18
     end
   end
-  
 end

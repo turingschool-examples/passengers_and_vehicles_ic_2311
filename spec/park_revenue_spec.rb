@@ -16,7 +16,7 @@ RSpec.describe do
     expect(@park_1.admission_price).to eq($15)
   end
 
-  it "can count numbers of @vehicles_entered the park" do
+  it "knows the number of @vehicles_entered the park" do
     expect(@park_1.vehicles_entered).to eq([])
 
     @park_1.enter_park(@vehicle_1)
@@ -25,5 +25,23 @@ RSpec.describe do
 
     expect(@park_1.vehicles_entered).to eq([@vehicle_1, @vehicle_2])
     expect(@park_2.vehicles_entered).to eq([@vehicle_3])
+  end
+
+  it "knows the passengers that enter the park" do
+    expect(@park_1.passengers_entered).to eq(0)
+ 
+    @park_1.enter_park(@vehicle_1)
+    @park_1.enter_park(@vehicle_2)
+    @park_2.enter_park(@vehicle_3)
+
+
+    expect(@park_1.number_passengers_entered).to eq(3 #plus @vehicle_2's passengers)
+        #@vehicle doesn't have passengers here yet.  Do I need to execute #add_passenger in this `it` block?
+
+  end
+
+  it '#admission_paid after vehicle enters park' do
+    expect(@revenue).to eq(0)
+
   end
 end
