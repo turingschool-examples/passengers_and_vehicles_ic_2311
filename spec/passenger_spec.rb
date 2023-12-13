@@ -25,10 +25,12 @@ RSpec.describe Passenger do
         end
     end
     describe "#Driver?" do
-        it "evaluates correctly if passenger is the current driver" do
+        it "evaluates correctly if passenger is the current driver, meeting requirements" do
             charlie = Passenger.new({"name" => "Charlie", "age" => 18})
             taylor = Passenger.new({"name" => "Taylor", "age" => 12})
             expect(charlie.driver?).to be(false)
+            taylor.drive
+            expect(taylor.driver?).to eq(false)
             charlie.drive
             expect(charlie.driver?).to be(true)
         end
