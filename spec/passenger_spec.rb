@@ -11,7 +11,7 @@ RSpec.describe Passenger do
 
   describe "#passenger" do 
     it "has attributes" do 
-      #expect(passenger).to be_an_instance_of(Passenger)
+      expect(@charlie).to be_an_instance_of(Passenger)
       expect(@charlie.name).to eq("Charlie")
       expect(@charlie.age).to eq(18)
       expect(@charlie.adult?).to eq(true)
