@@ -28,13 +28,23 @@ describe Passenger do
     end
   end
 
-  describe 'driver?' do
+  describe '#driver?' do
     it 'returns false to driver?' do
       charlie = Passenger.new({"name" => "Charlie", "age" => 18})
       taylor = Passenger.new({"name" => "Taylor", "age" => 12})
 
       expect(charlie.driver?).to eq(false)
       expect(taylor.driver?).to eq(false)
+    end
+  end
+
+  describe '#drive' do
+    it 'returns driver? true after calling drive' do
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+      taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+
+      expect(charlie.drive).to eq(true)
+      expect(taylor.drive).to eq(false)
     end
   end
 end
