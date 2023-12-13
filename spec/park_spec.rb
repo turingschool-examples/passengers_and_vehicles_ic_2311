@@ -38,4 +38,12 @@ RSpec.describe Park do
     it "#calculate_revenue" do
         expect(@park1.calculate_revenue).to eq(50)
     end
+
+    def lists_all_passenger_names
+        names = all_passengers_in_park.select do |passenger| 
+            passenger.name
+        end
+        names
+    end
+
 end
