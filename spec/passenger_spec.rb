@@ -11,5 +11,23 @@ RSpec.describe Passenger do
     end
   end
 
+  describe "#adult" do
+    it "return true if the passenger is 18 or older" do
+      expect(charlie.adult?).to eq (true)
+      expect(taylor.adult?).to eq (false)
+    end
+  end
 
+  describe "#is_driver?" do
+    it "is a driver that  set to false by default" do
+      expect(charlie.driver).to eq (false)
+    end
+  end
+
+  describe '#drive' do
+    it "change driver status from false to true" do
+      charlie.drive
+      expect(charlie.driver).to eq (true)
+    end
+  end
 end
