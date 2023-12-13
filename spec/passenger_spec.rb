@@ -33,4 +33,15 @@ RSpec.describe do
          expect(@taylor.driver?).to eq false
       end
    end
+
+   describe '#drive' do
+      it 'add the passenger as driver' do
+         expect(@charlie.driver?).to eq false
+         expect(@taylor.driver?).to eq false
+
+         @charlie.drive
+         expect(@charlie.driver?).to eq true
+         expect(@taylor.driver?).to eq false
+      end
+   end
 end
