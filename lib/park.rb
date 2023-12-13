@@ -32,4 +32,21 @@ class Park
       end
    end
 
+   def patrons
+      {
+         "Adults" => adults_entered_park,
+         "Minors" => minors_entered_park
+      }
+   end
+
+   def minors_entered_park
+      minors = @passengers_entered_park.select do |passenger| 
+         !passenger.adult?
+      end
+      minors_sorted = minors.map{ |minors| minors.name}.sort
+   end
+
+   def adults_entered_park
+      @passengers_entered_park.select(&:adult?).map(&:name).sort
+   end
 end
