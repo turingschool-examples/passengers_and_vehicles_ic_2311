@@ -3,7 +3,7 @@ require './lib/passenger'
 RSpec.describe do
    before(:each) do
       @charlie = Passenger.new({"name" => "Charlie", "age" => 18})
-
+      @taylor = Passenger.new({"name" => "Taylor", "age" => 12})
    end
 
    describe '#initialize' do
@@ -23,6 +23,7 @@ RSpec.describe do
    describe '#adult?' do
       it 'check if passenger is adult' do
          expect(@charlie.adult?).to eq true
+         expect(@taylor.adult?).to eq false
       end
    end
 end
