@@ -19,4 +19,19 @@ RSpec.describe do
          expect(park.admission_price).to eq 25
       end      
    end
+
+   describe '#vehicles_entered_park' do
+      it 'start as an empty array' do
+         park = Park.new("Yellowstone", 25)
+         expect(park.vehicles_entered_park).to eq []
+      end 
+   
+      it 'can list all vehicles that entered the park' do
+         park = Park.new("Yellowstone", 25)
+         honda = Vehicle.new("2001", "Honda", "Civic") 
+         nissan = Vehicle.new("2010", "Nissan", "Altima")
+
+         expect(park.vehicles_entered_park).to eq ([honda, nissan])
+      end
+   end
 end
