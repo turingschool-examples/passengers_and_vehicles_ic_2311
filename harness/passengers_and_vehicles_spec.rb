@@ -22,7 +22,7 @@ RSpec.describe 'Passenger and Vehicles Spec Harness' do
       expect(@charlie).to respond_to(:name).with(0).argument
       expect(@charlie.name).to eq("Charlie")
       expect(@charlie).to respond_to(:age).with(0).argument
-      expect(@charlie.name).to eq(18)
+      expect(@charlie.age).to eq(18)
     end
 
     it '2. Passenger #adult?' do
@@ -82,7 +82,7 @@ RSpec.describe 'Passenger and Vehicles Spec Harness' do
 
       @vehicle.add_passenger(@charlie)
       @vehicle.add_passenger(@taylor)
-      @vehicle.add_passenger(@jude)
+      @vehicle.add_passenger(jude)
       
       expect(@vehicle.num_adults).to eq(2)
     end
