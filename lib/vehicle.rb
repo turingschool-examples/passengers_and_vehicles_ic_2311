@@ -17,7 +17,10 @@ class Vehicle
     end
     
     def speed
-        @speeding = true
+        (@passengers != []) ?   @passengers.find do |passenger|
+                                passenger.driver? ? @speeding = true : @speeding = false
+                                end
+                            : @speeding = false
     end
 
     def passengers
