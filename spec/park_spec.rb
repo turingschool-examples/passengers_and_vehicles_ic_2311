@@ -43,4 +43,8 @@ RSpec.describe Park do
         expect(@park1.lists_all_passenger_names).to eq(["Charlie", "Jude", "Taylor"])
     end
 
+    it "#sort_names_by_age" do
+        expect(@park1.sort_names_by_age).to be_a Hash
+    end
+
 end

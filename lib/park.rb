@@ -34,10 +34,20 @@ class Park
             passenger.name
         end
     end
+
+    def sort_names_by_age
+        adults = all_passengers_in_park.map do |passenger|
+            passenger.age >= 18
+        end
+        minors = all_passengers_in_park.map do |passenger|
+            passenger.age < 18
+        end
+
+        names_sorted_by_age = { adult_patrons: adults, minor_patrons: minors}
+        names_sorted_by_age
+    end
 end
 
-# 2. Generate list of all passengers ("name" key in array), sort name array in hash with minor and adult key and names as values
-# 3. sort this list alphabetically
 
 
 
