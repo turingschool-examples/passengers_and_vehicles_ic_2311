@@ -35,7 +35,7 @@ RSpec.describe Park do
         expect(@park1.all_passengers_in_park).to eq([@charlie, @jude, @taylor])
     end
 
-    xit "#calculate_revenue" do
-        expect(@park.calculate_revenue).to eq(50)
+    it "#calculate_revenue" do
+        expect(@park1.calculate_revenue).to eq(50)
     end
 end
