@@ -13,11 +13,22 @@ describe Vehicle do
     end
   end
 
-  describe '#speeding' do
+  describe '#speeding?' do
     it 'returns false by defult' do
       vehicle = Vehicle.new("2001", "Honda", "Civic")
 
       expect(vehicle.speeding?).to eq(false)
+    end
+  end
+
+  describe '#speed' do
+    it 'returns speeding? true' do
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
+
+      expect(vehicle.speed).to eq(true)
+
+      vehicle.speed
+      expect(vehicle.speeding?).to eq(true)
     end
   end
 end
